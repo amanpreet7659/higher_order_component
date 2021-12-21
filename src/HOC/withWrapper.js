@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const withWrapper = (WrapperComponent) => {
     const WithWrapper = (props) => {
         const [state, setState] = useState(0)
         const [search, setSearch] = useState("")
+
+        useEffect(() => {
+            document.title = `Clicked ${state} times`
+        })
 
         const increment = () => {
             setState(old => (old + 1))
